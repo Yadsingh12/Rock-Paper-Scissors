@@ -1,5 +1,5 @@
 function getComputerChoice() {
-    const ran = Math.floor(Math.random()*100);
+    const ran = Math.floor(Math.random() * 100);
     if (ran < 33) return "rock";
     else if (ran < 66) return "paper";
     else return "scissor";
@@ -26,15 +26,13 @@ function game() {
     console.log("The game's winner will be decided by best of 5");
     let playerScore = 0;
     let computerScore = 0;
-    for (let i=0; i<5; i++) {
-        const roundResult = playRound(prompt("Choose your choice:"), getComputerChoice());
-        console.log(roundResult);
-        if(roundResult === "You lost this round") computerScore++;
-        else playerScore++;
-        console.log(`player's score: ${playerScore} computer's score: ${computerScore}`);
-    }
-    if (playerScore > computerScore) return "You won man! congo";
-    else return "You lost kiddo";
+    const roundResult = playRound(prompt("Choose your choice:"), getComputerChoice());
+    console.log(roundResult);
+    if (roundResult === "You lost this round") computerScore++;
+    else playerScore++;
+    console.log(`player's score: ${playerScore} computer's score: ${computerScore}`);
+    //if (playerScore > computerScore) return "You won man! congo";
+    //else return "You lost kiddo";
 }
 
 console.log(game());
