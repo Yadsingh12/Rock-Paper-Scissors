@@ -9,15 +9,15 @@ function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
     if (playerSelection === computerSelection) {
-        return playRound(prompt("Tie choose again!"), getComputerChoice());
+        console.log("Tie:choose again");
     } else if (
         (playerSelection === "rock" && computerSelection === "paper") ||
         (playerSelection === "paper" && computerSelection === "scissor") ||
         (playerSelection === "scissor" && computerSelection === "rock")
     ) {
-        return "You lost this round";
+        console.log("You lost this round");
     } else {
-        return "You won this round";
+        console.log("You won this round");
     }
 }
 
@@ -34,5 +34,10 @@ function game() {
     //if (playerScore > computerScore) return "You won man! congo";
     //else return "You lost kiddo";
 }
-
-console.log(game());
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissor = document.querySelector("#scissor");
+rock.addEventListener("click",()=>(playRound("rock",getComputerChoice())));
+paper.addEventListener("click",()=>(playRound("paper",getComputerChoice())));
+scissor.addEventListener("click",()=>(playRound("scissor",getComputerChoice())));
+//console.log(game());
